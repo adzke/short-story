@@ -1,12 +1,36 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet, } from 'react-native';
+import { getStories } from './common/storiesAPIFunctions';
+import { HomeScreen } from './components/home';
+import { Loading } from './components/loading';
+
+
+export type ShortStoryNavigatorPamarList = {
+  ['Home']: undefined
+}
+
+
+const Stack = createNativeStackNavigator<ShortStoryNavigatorPamarList>();
+
 
 export default function App() {
+
+  useEffect(() => {
+    getStories()
+  }, []);
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Loading />
+      <Stack.Navigator initialRouteName='Home' screenOptions={{
+
+      }}>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

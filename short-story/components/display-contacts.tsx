@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { appleGreen, applePurple, appleRed, defaultGray, defaultWhite } from '../colours';
+import { appleGreen, applePurple, appleRed, defaultGray, defaultWhite } from '../common/colours';
 import { Feather } from '@expo/vector-icons';
 import { rvIsLoading } from './loading';
 import { ScrollView } from 'react-native-gesture-handler';

@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeVar, useReactiveVar } from '@apollo/client'
 import { ActivityIndicator, StyleSheet, View } from 'react-native'
-import { defaultGray } from '../colours'
+import { defaultGray } from '../common/colours'
 
 export const rvIsLoading = makeVar(false)
 
