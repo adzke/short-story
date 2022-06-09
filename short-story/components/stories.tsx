@@ -15,7 +15,7 @@ export const Stories = () => {
             {stories.map(i => (
                 <TouchableOpacity>
                     <View style={styles.cardTitleSection}>
-                        <Text key={i.id}>Just Ask for Mercy</Text>
+                        <Text key={i.id}>{i.title}</Text>
                     </View>
                     <View style={styles.storyCard}>
                         <Text style={styles.storyText}>{i.story}</Text>
