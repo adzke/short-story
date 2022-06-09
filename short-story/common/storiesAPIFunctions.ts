@@ -23,7 +23,6 @@ export const getStories = async () => {
 
         // 👇️ const result: GetUsersResponse
         const result = (await response.json()) as Story[];
-        console.log(result)
         rvStories(result)
         rvIsLoading(false)
 
