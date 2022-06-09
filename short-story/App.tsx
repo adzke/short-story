@@ -26,7 +26,7 @@ export default function App() {
     <NavigationContainer>
       <Loading />
       <Stack.Navigator initialRouteName='Home' screenOptions={{
-
+        title: 'Littérateur'
       }}>
         <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
