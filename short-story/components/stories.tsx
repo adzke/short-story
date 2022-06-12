@@ -7,6 +7,7 @@ import { ShortStoryNavigatorPamarList } from "../App"
 import { defaultGray, defaultWhite } from "../common/colours"
 import { rvCurrentStory, rvStories } from "../common/common-states"
 import { Story } from "../common/common-types"
+import { defaultFont } from "../common/fonts"
 
 
 export const Stories = ({ navigation: { navigate } }: StackScreenProps<ShortStoryNavigatorPamarList, 'Stories'>) => {
@@ -21,7 +22,6 @@ export const Stories = ({ navigation: { navigate } }: StackScreenProps<ShortStor
 
 
     return (
-        <View >
             <ScrollView contentContainerStyle={styles.mainContainer}>
                 {stories.map(story => (
                     <TouchableOpacity style={styles.cardContainer} onPress={() => readStory(story)} key={story.id}>
@@ -37,7 +37,6 @@ export const Stories = ({ navigation: { navigate } }: StackScreenProps<ShortStor
                     </TouchableOpacity>
                 ))}
             </ScrollView>
-        </View>
     )
 }
 const styles = StyleSheet.create({
@@ -69,11 +68,13 @@ const styles = StyleSheet.create({
 
     },
     storyText: {
-        overflow: 'scroll',
+        overflow: 'hidden',
         fontSize: 7,
+        fontFamily: defaultFont
     },
     titleText: {
-        overflow: 'scroll',
+        fontFamily: defaultFont,
+        overflow: 'hidden',
         height: 50,
         textAlign: 'center',
         paddingHorizontal: 5,

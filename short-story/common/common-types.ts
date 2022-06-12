@@ -3,5 +3,5 @@ export type Story = {
     title: string
     story: string;
     author: string;
-    publish_date: Date
+    publish_date: string
 };
