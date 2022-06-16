@@ -1,9 +1,8 @@
 import { rvIsLoading } from "../components/loading";
 import { rvStories } from "./common-states";
-import { Story } from "./common-types";
+import { PostStoryResult, Story, StoryPost } from "./common-types";
 
 const apiUrl = 'https://adzke.pythonanywhere.com/stories/'
-
 
 
 export const getStories = async () => {
@@ -37,6 +36,62 @@ export const getStories = async () => {
             console.log('unexpected error: ', error);
             return 'An unexpected error occurred';
         }
+    }
+
+}
+
+export const postStories = async (story: StoryPost) => {
+
+    try {
+        rvIsLoading(true)
+        // 👇️ const response: Response
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            body: JSON.stringify(story),
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error! status: ${response.status}`);
+        }
+
+        // 👇️ const result: CreateUserResponse
+        const result = (await response.json()) as PostStoryResult;
+
+        console.log('result is: ', JSON.stringify(result, null, 4));
+        getStories()
+        rvIsLoading(false)
+        return {
+            story: result,
+            postSucessful: true,
+            errorMessage: 'Post sucessful, no error.'
+        }
+    }
+    catch (error) {
+        if (error instanceof Error) {
+            alert(error)
+            console.log('error message: ', error.message);
+            rvIsLoading(false)
+            return {
+                errorMessage: error.message,
+                postSucessful: false
+            }
+
+        } else {
+            alert(error)
+            console.log('unexpected error: ', error);
+            rvIsLoading(false)
+            return {
+                errorMessage: 'An unexpected error occurred',
+                postSucessful: false
+            }
+
+        }
+
+
     }
 
 }

@@ -1,9 +1,7 @@
-import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
-import { StyleSheet, View, } from 'react-native';
-import { Story } from './common/common-types';
+import { StyleSheet, } from 'react-native';
 import { getStories } from './common/storiesAPIFunctions';
 import { HomeScreen } from './components/home';
 import { Loading } from './components/loading';
@@ -28,7 +26,6 @@ const Stack = createNativeStackNavigator<ShortStoryNavigatorPamarList>();
 
 export default function App() {
   
-  const story = useReactiveVar(rvCurrentStory)
 
   useEffect(() => {
     getStories()
@@ -48,7 +45,7 @@ export default function App() {
       <Loading />
       <Stack.Navigator initialRouteName='Stories' screenOptions={{
         headerRight: HeaderRight,
-        title: story ? story.title : "Pamphleteer",
+        title: "Pamphleteer",
       }}>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Stories" component={Stories} />

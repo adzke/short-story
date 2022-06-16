@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     },
     time: {
         paddingRight: 5,
-        fontSize: 12
+        fontSize: 12,
     },
     date: {
         paddingRight: 5,

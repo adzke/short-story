@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
         paddingTop: 15,
     },
     cardTitleSection: {
+        height: 60,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     titleText: {
         fontFamily: defaultFont,
         overflow: 'hidden',
-        height: 50,
+        height: 38,
         textAlign: 'center',
         paddingHorizontal: 5,
     },
