@@ -8,10 +8,9 @@ import { Loading } from './components/loading';
 import { ReadStories } from './components/read-story';
 import { Stories } from './components/stories';
 import { useFonts } from 'expo-font';
-import { HeaderRight } from './common/headerRight';
-import { useReactiveVar } from '@apollo/client';
-import { rvCurrentStory } from './common/common-states';
+import { HeaderRight } from './common/header-right';
 import { AddStory } from './components/add-story';
+import { HeaderLeft } from './common/header-left';
 
 export type ShortStoryNavigatorPamarList = {
   ['Home']: undefined
@@ -45,7 +44,11 @@ export default function App() {
       <Loading />
       <Stack.Navigator initialRouteName='Stories' screenOptions={{
         headerRight: HeaderRight,
-        title: "Pamphleteer",
+        headerLeft: () => (
+          <HeaderLeft
+          />
+        ),
+        title: "",
       }}>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Stories" component={Stories} />
