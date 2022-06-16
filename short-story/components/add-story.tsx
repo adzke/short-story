@@ -1,12 +1,10 @@
 import { StackScreenProps } from "@react-navigation/stack";
 import React, { useState } from "react"
 import { SafeAreaView, TextInput, StyleSheet, ViewStyle, ColorValue, Dimensions, View } from "react-native"
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { ShortStoryNavigatorPamarList } from "../App";
 import { applePurple, appleSytemGray4, defaultWhite } from "../common/colours";
-import { Story, StoryPost } from "../common/common-types";
+import { StoryPost } from "../common/common-types";
 import { DefaultButton } from "../common/default-button";
-import { DefaultText } from "../common/default-text";
 import { postStories } from "../common/storiesAPIFunctions";
 
 const inputHeight = 40
@@ -35,7 +33,7 @@ export const AddStory = ({ navigation: { navigate } }: StackScreenProps<ShortSto
     const defaultFieldValue = ""
     const defaultTitleValue = "Untitled"
     const defaultAuthorValue = "Anonymous"
-    const defaultStoryValue = "True! — nervous — very, very dreadfully nervous I had been and am; but why will you say that I am mad? The disease had sharpened my senses — not destroyed — not dulled them. Above all was the sense of hearing acute. I heard all things in the heaven and in the earth. I heard many things in hell. How, then, am I mad? Hearken! and observe how healthily — how calmly I can tell you the whole story..."
+    const defaultStoryValue = "True! — nervous — very, very dreadfully nervous I had been and am; but why will you say that I am mad?"
 
     const [title, setTitle] = useState<string>(defaultFieldValue);
     const [author, setAuthor] = useState<string>(defaultFieldValue);
@@ -89,15 +87,11 @@ export const AddStory = ({ navigation: { navigate } }: StackScreenProps<ShortSto
                 clearFields()
                 navigate('Stories')
             }
-
         }
         catch (error) {
-                
+  
         }
-
     }
-
-
 
 
     return (
