@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="27.810141mm"
+   height="13.34581mm"
+   viewBox="0 0 27.810141 13.34581"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   sodipodi:docname="drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0.9"
+     fit-margin-left="0.7"
+     fit-margin-right="0.1"
+     fit-margin-bottom="0"
+     inkscape:zoom="5.4326249"
+     inkscape:cx="87.158603"
+     inkscape:cy="37.642945"
+     inkscape:window-width="1793"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="76.866753"
+       y="121.92658"
+       width="471.80283"
+       height="331.32224"
+       id="rect891" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-19.60672,-34.295025)">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,0.43832402,1.5097827)"
+       id="text889"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect891);fill:#ffffff;fill-opacity:1;stroke:none"><tspan
+         x="76.867188"
+         y="158.41899"
+         id="tspan16498"><tspan
+           style="font-family:'Dancing Script';-inkscape-font-specification:'Dancing Script'"
+           id="tspan16496">Raven</tspan></tspan></text>
+    <path
+       d="m 28.416224,38.40484 c 0.01306,0.04685 0.07295,0.116379 0.128486,0.148586 0.07078,0.04245 0.186194,0.07684 0.30379,0.09222 l 0.10017,0.01245 v 0.0849 c 0,0.04611 0.0054,0.08929 0.01089,0.09516 0.0088,0.0095 0.203618,0.01099 1.673568,0.0088 3.6052,-0.0059 3.40594,-0.0045 3.437516,-0.0183 0.04244,-0.01905 0.03593,-0.03953 -0.02395,-0.07832 -0.05009,-0.03295 -0.0871,-0.04684 -0.235193,-0.09076 -0.03484,-0.01099 -0.06206,-0.02049 -0.05989,-0.02196 0.0021,-0.0014 0.176396,-0.0045 0.387634,-0.0051 0.3811,-0.0029 0.383277,-0.0029 0.388722,-0.01829 l 0.0064,-0.0161 1.815118,-0.0037 c 1.690992,-0.0037 2.022006,-0.0065 2.828845,-0.02708 0.667468,-0.01684 1.616949,-0.05123 1.900052,-0.06953 0.09256,-0.0059 0.227572,-0.0139 0.299435,-0.0183 0.211238,-0.01243 0.618467,-0.04392 0.794862,-0.06075 l 0.16333,-0.0161 0.0032,-0.08783 c 0.0021,-0.0483 0,-0.09809 -0.0032,-0.109791 l -0.0054,-0.02269 -0.623912,-0.03441 c -1.192297,-0.06659 -1.818389,-0.09221 -2.637208,-0.107594 -0.534626,-0.0095 -2.21364,-0.01171 -3.456022,-0.0045 l -1.050745,0.0065 -0.0294,-0.02341 -0.0294,-0.02417 -1.757412,7.45e-4 c -2.522869,0.0014 -3.925315,0.0072 -3.977579,0.01684 -0.07513,0.01318 -0.149172,0.04318 -0.213415,0.08563 -0.121865,0.08197 -0.173041,0.193964 -0.139287,0.306684 z m 2.337771,0.234955 c 0.327743,-0.0029 1.048567,-0.0051 1.602793,-0.0059 h 1.00719 l -0.03267,0.0183 c -0.0185,0.01019 -0.05663,0.03295 -0.08602,0.05123 l -0.05335,0.03366 -0.458408,-0.0045 c -0.252612,-0.0022 -0.907015,-0.0059 -1.45471,-0.0082 -0.852573,-0.0037 -1.003924,-0.0059 -1.047478,-0.01537 -0.05771,-0.01243 -0.10453,-0.04391 -0.08493,-0.05709 0.0077,-0.0059 0.204704,-0.0095 0.60758,-0.01244 z"
+       id="path8408"
+       style="fill:#ffffff;stroke:none;stroke-width:0.000892733"
+       sodipodi:nodetypes="ccccsccccccccccccccccccccccccccccccccccccccccc" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 44.198596,41.892642 c 1.021229,-2.853676 2.775754,-1.071673 2.532538,-0.340919 -4.174276,9.925497 -30.964627,-0.399038 -25.033171,4.431943"
+       id="path15441"
+       sodipodi:nodetypes="ccc" />
+  </g>
+</svg>

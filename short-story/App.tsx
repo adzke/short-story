@@ -11,6 +11,8 @@ import { useFonts } from 'expo-font';
 import { HeaderRight } from './common/header-right';
 import { AddStory } from './components/add-story';
 import { HeaderLeft } from './common/header-left';
+import { HeaderCustom } from './common/header-custom';
+import { Header } from '@react-navigation/stack';
 
 export type ShortStoryNavigatorPamarList = {
   ['Home']: undefined
@@ -33,6 +35,7 @@ export default function App() {
    const fontLoaded = useFonts({
     Caveat: require('./assets/fonts/LibreBaskerville-Regular.ttf'),
     LibreBaskerville: require('./assets/fonts/LibreBaskerville-Regular.ttf'),
+    DancingScript: require('./assets/fonts/DancingScript-Regular.ttf'),
   });
   
   if (!fontLoaded) {
@@ -43,12 +46,7 @@ export default function App() {
     <NavigationContainer >
       <Loading />
       <Stack.Navigator initialRouteName='Stories' screenOptions={{
-        headerRight: HeaderRight,
-        headerLeft: () => (
-          <HeaderLeft
-          />
-        ),
-        title: "",
+          header: (props) => <HeaderCustom {...props} />,
       }}>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Stories" component={Stories} />

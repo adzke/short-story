@@ -4,17 +4,16 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { ShortStoryNavigatorPamarList } from "../App";
 import { AntDesign } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
 import { rvCurrentStory, rvStories } from "./common-states";
 import { useReactiveVar } from "@apollo/client";
-
+import { defaultBlack } from "./colours";
 
 
 export const HeaderLeft = () => {
 
     const navigation = useNavigation<NavigationProp<ShortStoryNavigatorPamarList>>();
     const stories = useReactiveVar(rvStories)
-    
+
     const navigateToStories = () => {
         navigation.navigate('Stories')
     }
@@ -28,10 +27,7 @@ export const HeaderLeft = () => {
     return (
         <View style={styles.headingContainer}>
             <TouchableOpacity style={styles.container} onPress={navigateToStories}>
-                <Ionicons name="arrow-back-sharp" size={24} color="black" />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.container} onPress={navigateToRandomSotry}>
-                <AntDesign name="yuque" size={30} color="black" />
+                <AntDesign name="home" size={30} color={defaultBlack} />
             </TouchableOpacity>
         </View>
     )

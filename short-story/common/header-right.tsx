@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { ShortStoryNavigatorPamarList } from "../App";
+import { defaultBlack } from "./colours";
 export const HeaderRight = () => {
 
     const navigation = useNavigation<NavigationProp<ShortStoryNavigatorPamarList>>();
@@ -16,7 +17,7 @@ export const HeaderRight = () => {
     return (
         <View>
             <TouchableOpacity style={styles.container} onPress={addStory}>
-                <Ionicons name="ios-add" size={30} color="black" />
+                <Ionicons name="ios-add" size={30} color={defaultBlack} />
             </TouchableOpacity>
         </View>
     )
