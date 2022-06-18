@@ -1,5 +1,5 @@
 import { rvIsLoading } from "../components/loading";
-import { rvStories } from "./common-states";
+import { rvShowBanner, rvStories } from "./common-states";
 import { PostStoryResult, Story, StoryPost } from "./common-types";
 
 const apiUrl = 'https://adzke.pythonanywhere.com/stories/'
@@ -72,7 +72,7 @@ export const postStories = async (story: StoryPost) => {
     }
     catch (error) {
         if (error instanceof Error) {
-            alert(error)
+            rvShowBanner(true)
             console.log('error message: ', error.message);
             rvIsLoading(false)
             return {
@@ -81,7 +81,7 @@ export const postStories = async (story: StoryPost) => {
             }
 
         } else {
-            alert(error)
+            rvShowBanner(true)
             console.log('unexpected error: ', error);
             rvIsLoading(false)
             return {

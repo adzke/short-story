@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeVar, useReactiveVar } from '@apollo/client'
 import { ActivityIndicator, StyleSheet, View } from 'react-native'
-import { defaultGray } from '../common/colours'
+import { defaultBlack, defaultGray } from '../common/colours'
 
 export const rvIsLoading = makeVar(false)
 
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: '100%',
         height: '100%',
-        backgroundColor: defaultGray,
+        backgroundColor: defaultBlack,
         opacity: 0.8
     },
 })

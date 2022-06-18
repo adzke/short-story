@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { SafeAreaView, TextInput, StyleSheet, ViewStyle, ColorValue, Dimensions, View } from "react-native"
 import { ShortStoryNavigatorPamarList } from "../App";
 import { applePurple, appleSytemGray4, defaultWhite } from "../common/colours";
+import { rvShowBanner } from "../common/common-states";
 import { StoryPost } from "../common/common-types";
 import { DefaultButton } from "../common/default-button";
 import { postStories } from "../common/storiesAPIFunctions";

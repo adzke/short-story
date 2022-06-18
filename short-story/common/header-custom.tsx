@@ -4,7 +4,7 @@ import { View, StyleSheet, SafeAreaView, TouchableOpacity, Image } from "react-n
 import { defaultBlack, defaultWhite } from "./colours"
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-import { Caveat, DancingScript } from "./fonts";
+import { DancingScript } from "./fonts";
 
 
 export const HeaderCustom = ({ navigation: { navigate, goBack } }: NativeStackHeaderProps) => {
@@ -30,7 +30,7 @@ export const HeaderCustom = ({ navigation: { navigate, goBack } }: NativeStackHe
                         <AntDesign name="home" size={30} color={defaultWhite} />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.plusIcon} onPress={addStory}>
-                        <Ionicons name="ios-add" size={40} color={defaultWhite} />
+                        <Ionicons name="ios-add" size={44} color={defaultWhite} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -57,15 +57,14 @@ const styles = StyleSheet.create({
     rightHeader: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
-        alignItems: 'flex-end',
+        alignItems: 'center',
     },
     icon: {
-        padding: 10,
+        marginLeft: 5,
     },
     title: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingLeft: 10,
     },
     titleText: {
         fontSize: 26,
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
         resizeMode: 'stretch',
     },
     plusIcon: {
-        padding: 3,
+        marginLeft: 5,
     }
 
 })
