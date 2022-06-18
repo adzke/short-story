@@ -1,16 +1,19 @@
 import { useReactiveVar } from "@apollo/client"
 import React from "react"
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import { ScrollView } from "react-native-gesture-handler"
 import { defaultGray, defaultWhite } from "../common/colours"
 import { rvCurrentStory } from "../common/common-states"
 import { Dimensions } from 'react-native';
 import { defaultFont } from "../common/fonts"
+import { StackScreenProps } from "@react-navigation/stack"
+import { ShortStoryNavigatorPamarList } from "../App"
+import { Ionicons } from '@expo/vector-icons';
 
 const windowWidth = Dimensions.get('window').width;
 const windowCondition = windowWidth > 700
 
-export const ReadStories = () => {
+export const ReadStories = ({ navigation: { goBack } }: StackScreenProps<ShortStoryNavigatorPamarList, 'ReadStories'>) => {
 
     const story = useReactiveVar(rvCurrentStory)
 
@@ -27,9 +30,14 @@ export const ReadStories = () => {
     return (
         <ScrollView contentContainerStyle={styles.mainContainer}>
             <View style={styles.page}>
+                <View style={styles.goBack} >
+                    <TouchableOpacity style={styles.goBackTouchable} onPress={goBack}>
+                        <Ionicons name="arrow-back-sharp" size={40} color="black" />
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.dateContainer}>
                     <Text style={styles.time}>
-                    Published on
+                        Published on
                     </Text>
                     <Text style={styles.date}>
                         {publishDate},
@@ -105,7 +113,15 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'flex-end',
         paddingVertical: 20,
-    
+
+    },
+    goBack: {
+        justifyContent: 'flex-start',
+        width: '100%'
+    },
+    goBackTouchable: {
+        width: 50,
+        height: 50,
     }
 
 });
