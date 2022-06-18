@@ -1,11 +1,11 @@
 import { StackScreenProps } from "@react-navigation/stack";
 import React, { useState } from "react"
-import { SafeAreaView, TextInput, StyleSheet, ViewStyle, ColorValue, Dimensions, View } from "react-native"
+import { SafeAreaView, TextInput, StyleSheet, ViewStyle, ColorValue, Dimensions, View, Text } from "react-native"
 import { ShortStoryNavigatorPamarList } from "../App";
-import { applePurple, appleSytemGray4, defaultWhite } from "../common/colours";
-import { rvShowBanner } from "../common/common-states";
+import { applePurple, appleSytemGray4, defaultBlack, defaultWhite } from "../common/colours";
 import { StoryPost } from "../common/common-types";
 import { DefaultButton } from "../common/default-button";
+import { defaultFont } from "../common/fonts";
 import { postStories } from "../common/storiesAPIFunctions";
 
 const inputHeight = 40
@@ -90,7 +90,7 @@ export const AddStory = ({ navigation: { navigate } }: StackScreenProps<ShortSto
             }
         }
         catch (error) {
-  
+
         }
     }
 
@@ -98,8 +98,17 @@ export const AddStory = ({ navigation: { navigate } }: StackScreenProps<ShortSto
     return (
         <SafeAreaView >
             <View style={styles.mainContainer}>
+                <Text style={styles.inputTitle}>
+                    Title
+                </Text>
                 <TextInput style={StyleSheet.compose(styles.title, { borderColor: borderColourTitle })} onChangeText={setTitle} placeholder={defaultTitleValue} onFocus={() => selectionBorderChange(StorySection.Title, textInputBlur)} onBlur={() => selectionBorderChange(StorySection.Title, textInputFocused)} />
+                <Text style={styles.inputTitle}>
+                    Author
+                </Text>
                 <TextInput style={StyleSheet.compose(styles.author, { borderColor: borderColourAuthor })} onChangeText={setAuthor} placeholder={defaultAuthorValue} onFocus={() => selectionBorderChange(StorySection.Author, textInputBlur)} onBlur={() => selectionBorderChange(StorySection.Author, textInputFocused)} />
+                <Text style={styles.inputTitle}>
+                    Story
+                </Text>
                 <TextInput style={StyleSheet.compose(styles.story, { borderColor: borderColourStory })} onChangeText={setStory} placeholder={defaultStoryValue} multiline={true} onFocus={() => selectionBorderChange(StorySection.Story, textInputBlur)} onBlur={() => selectionBorderChange(StorySection.Story, textInputFocused)} />
                 <View style={styles.buttonContainer}>
                     <DefaultButton buttonText="Publish" onPress={addStory}></DefaultButton>
@@ -148,6 +157,12 @@ const styles = StyleSheet.create({
         borderRadius: inputBorderRadius,
         borderWidth: inputBorderWidth,
         borderColor: inputBorderColour,
-        outlineStyle: inputOutlineStyle
+        outlineStyle: inputOutlineStyle,
     } as ViewStyle,
+    inputTitle: {
+        fontFamily: defaultFont,
+        color: defaultBlack,
+        fontSize: 20,
+        marginLeft: 12,
+        }
 });

@@ -6,19 +6,41 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { useReactiveVar } from "@apollo/client";
 import { rvShowBanner } from "./common-states";
 
+export enum BannerColours  {
+    applePurple = '#5856d6',
+    appleRed = '#ff3b30',
+    appleGreen = '#4cd964'
+
+
+}
+
+export type BannerProps = {
+    message: string,
+    colour: BannerColours
+}
+
 export const AlertBanner = () => {
 
     const showBanner = useReactiveVar(rvShowBanner)
     const displayNone = {display: 'none'} as ViewStyle
 
     const closeBanner = () => {
-        rvShowBanner(false)
+        rvShowBanner(undefined)
     }
+
+    if (showBanner === undefined) {
+        return null
+    }
+
+    const {
+        colour,
+        message,
+    } = showBanner
     return (
         <View style={showBanner ? styles.mainContainer : displayNone}>
-            <View style={styles.background}>
+            <View style={StyleSheet.compose(styles.background, {backgroundColor: colour})}>
                 <View style={styles.contentRow}>
-                    <Text style={styles.alertText}>Publish failed, 404 error.</Text>
+                    <Text style={styles.alertText}>{message}</Text>
                     <View style={styles.closeIcon}>
                         <TouchableOpacity onPress={closeBanner}>
                             <AntDesign name="close" size={24} color={defaultWhite} />
@@ -51,7 +73,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#f44336',
         borderRadius: 3,
 
-    },
+    } as ViewStyle,
     alertText: {
         color: defaultWhite,
         fontSize: 18,

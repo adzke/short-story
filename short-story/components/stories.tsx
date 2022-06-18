@@ -39,8 +39,6 @@ export const Stories = ({ navigation: { navigate } }: StackScreenProps<ShortStor
                                 {story.author}
                             </Text>
                         </View>
-
-
                     </View>
                 </TouchableOpacity>
             ))}
@@ -56,7 +54,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     storySpacer: {
-        height: 100,
+        height: 25,
         width: '100%'
     },
     storyCard: {

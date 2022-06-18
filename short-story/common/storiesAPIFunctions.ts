@@ -1,4 +1,5 @@
 import { rvIsLoading } from "../components/loading";
+import { BannerColours } from "./alert-banner";
 import { rvShowBanner, rvStories } from "./common-states";
 import { PostStoryResult, Story, StoryPost } from "./common-types";
 
@@ -64,6 +65,10 @@ export const postStories = async (story: StoryPost) => {
         console.log('result is: ', JSON.stringify(result, null, 4));
         getStories()
         rvIsLoading(false)
+        rvShowBanner({
+            message: "Post successful",
+            colour: BannerColours.appleGreen
+        })
         return {
             story: result,
             postSucessful: true,
@@ -72,7 +77,10 @@ export const postStories = async (story: StoryPost) => {
     }
     catch (error) {
         if (error instanceof Error) {
-            rvShowBanner(true)
+            rvShowBanner({
+                message: error.message,
+                colour: BannerColours.appleRed
+            })
             console.log('error message: ', error.message);
             rvIsLoading(false)
             return {
@@ -81,7 +89,10 @@ export const postStories = async (story: StoryPost) => {
             }
 
         } else {
-            rvShowBanner(true)
+            rvShowBanner({
+                message: 'unexpected error: ',
+                colour: BannerColours.appleRed
+            })
             console.log('unexpected error: ', error);
             rvIsLoading(false)
             return {
