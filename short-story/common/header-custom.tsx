@@ -5,9 +5,12 @@ import { defaultBlack, defaultWhite } from "./colours"
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { DancingScript } from "./fonts";
+import { useReactiveVar } from "@apollo/client";
+import { rvShowSearchBar } from "./common-states";
 
+export const HeaderCustom = ({ navigation: { navigate } }: NativeStackHeaderProps) => {
 
-export const HeaderCustom = ({ navigation: { navigate, goBack } }: NativeStackHeaderProps) => {
+    const searchBar = useReactiveVar(rvShowSearchBar)
 
     const navigateToStories = () => {
         navigate('Stories')
@@ -15,6 +18,10 @@ export const HeaderCustom = ({ navigation: { navigate, goBack } }: NativeStackHe
 
     const addStory = () => {
         navigate('AddStory')
+    }
+
+    const showSearchBar = () => {
+        rvShowSearchBar(!searchBar)
     }
 
     return (
@@ -26,11 +33,14 @@ export const HeaderCustom = ({ navigation: { navigate, goBack } }: NativeStackHe
                     </TouchableOpacity>
                 </View>
                 <View style={styles.rightHeader}>
+                    <TouchableOpacity style={styles.searchIcon} onPress={showSearchBar}>
+                        <AntDesign name="search1" size={29} color={defaultWhite} />
+                    </TouchableOpacity>
                     <TouchableOpacity style={styles.icon} onPress={navigateToStories}>
                         <AntDesign name="home" size={30} color={defaultWhite} />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.plusIcon} onPress={addStory}>
-                        <Ionicons name="ios-add" size={44} color={defaultWhite} />
+                        <Ionicons name="ios-add" size={42} color={defaultWhite} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -78,6 +88,10 @@ const styles = StyleSheet.create({
     },
     plusIcon: {
         marginLeft: 5,
+    },
+    searchIcon: {
+        marginRight: 6,
+        marginTop: 2,
     }
 
 })

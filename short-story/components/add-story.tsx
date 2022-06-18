@@ -8,14 +8,14 @@ import { DefaultButton } from "../common/default-button";
 import { defaultFont } from "../common/fonts";
 import { postStories } from "../common/storiesAPIFunctions";
 
-const inputHeight = 40
-const inputMargin = 12
-const inputPadding = 10
-const inputBorderRadius = 4
-const inputBorderWidth = 2
-const inputBorderColour = appleSytemGray4 as ColorValue
+export const inputHeight = 40
+export const inputMargin = 12
+export const inputPadding = 10
+export const inputBorderRadius = 4
+export const inputBorderWidth = 2
+export const inputBorderColour = appleSytemGray4 as ColorValue
 const inputMultiLine = 200
-const inputOutlineStyle = 'none'
+export const inputOutlineStyle = 'none'
 const inputSelectedColour = applePurple as ColorValue
 const windowWidth = Dimensions.get('window').width;
 const windowCondition = windowWidth > 700

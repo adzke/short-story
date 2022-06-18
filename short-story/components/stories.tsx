@@ -1,47 +1,58 @@
 import { useReactiveVar } from "@apollo/client"
 import { StackScreenProps } from "@react-navigation/stack"
-import React from "react"
+import React, { useState } from "react"
 import { View, Text, StyleSheet, ScrollView } from "react-native"
-import { TouchableOpacity } from "react-native-gesture-handler"
+import { TextInput, TouchableOpacity } from "react-native-gesture-handler"
 import { ShortStoryNavigatorPamarList } from "../App"
-import { appleGreen, applePurple, appleSytemGray4, appleSytemGray4Dark, defaultBlack, defaultGray, defaultWhite } from "../common/colours"
-import { rvCurrentStory, rvStories } from "../common/common-states"
+import { defaultBlack, defaultWhite } from "../common/colours"
+import { rvCurrentStory, rvShowSearchBar, rvStories } from "../common/common-states"
 import { Story } from "../common/common-types"
 import { defaultFont } from "../common/fonts"
+import { inputBorderColour, inputBorderRadius, inputBorderWidth, inputHeight, inputMargin, inputOutlineStyle, inputPadding } from "./add-story"
 
 
 export const Stories = ({ navigation: { navigate } }: StackScreenProps<ShortStoryNavigatorPamarList, 'Stories'>) => {
 
-    const stories = useReactiveVar(rvStories)
+    const [searchValue, SetSearchValue] = useState<String>('')
 
+    const stories = useReactiveVar(rvStories)
+    const showSearchBar = useReactiveVar(rvShowSearchBar)
 
     const readStory = (story: Story) => {
         rvCurrentStory(story)
         navigate('ReadStories')
     }
 
+    const setSearch = (value: string) => {
+        SetSearchValue(value)
+    }
 
     return (
         <ScrollView contentContainerStyle={styles.mainContainer}>
+            {showSearchBar && <TextInput onChangeText={SetSearchValue} placeholder="Search..." style={styles.searchBar}/>}
             <View style={styles.storySpacer} />
-            {stories.map(story => (
-                <TouchableOpacity style={styles.cardContainer} onPress={() => readStory(story)} key={story.id}>
-                    <View style={styles.card}>
 
-                        <View style={styles.storyCard}>
-                            <Text style={styles.storyText}>{story.story}</Text>
+            {stories
+                .filter(story => story.author.toLowerCase().indexOf(searchValue.toLowerCase()) > -1 || story.publish_date.toLowerCase().indexOf(searchValue.toLowerCase()) > -1 || story.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1  || story.story.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
+                .sort((a, b) => b.id - a.id)
+                .map(story => (
+                    <TouchableOpacity style={styles.cardContainer} onPress={() => readStory(story)} key={story.id}>
+                        <View style={styles.card}>
+
+                            <View style={styles.storyCard}>
+                                <Text style={styles.storyText}>{story.story}</Text>
+                            </View>
+                            <View style={styles.storyInfoContainer}>
+                                <Text style={styles.titleText}>
+                                    {story.title}
+                                </Text>
+                                <Text style={styles.authorText}>
+                                    {story.author}
+                                </Text>
+                            </View>
                         </View>
-                        <View style={styles.storyInfoContainer}>
-                            <Text style={styles.titleText}>
-                                {story.title}
-                            </Text>
-                            <Text style={styles.authorText}>
-                                {story.author}
-                            </Text>
-                        </View>
-                    </View>
-                </TouchableOpacity>
-            ))}
+                    </TouchableOpacity>
+                ))}
         </ScrollView>
     )
 }
@@ -54,7 +65,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     storySpacer: {
-        height: 25,
+        height: 5,
         width: '100%'
     },
     storyCard: {
@@ -101,6 +112,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
 
+    },
+    searchBar: {
+        width: 330,
+        height: inputHeight,
+        margin: inputMargin,
+        padding: inputPadding,
+        marginTop: 10,
+        borderRadius: inputBorderRadius,
+        borderWidth: inputBorderWidth,
+        borderColor: inputBorderColour,
+        outlineStyle: inputOutlineStyle,
+        backgroundColor: defaultWhite
     }
 
 
